@@ -1,0 +1,71 @@
+<html>
+<head>
+	<title> Palindrome App by Anurag Gaiwal </title>
+	<style>
+		*{
+		  font-size:50px
+		}
+
+		body {
+		  background-color: lightblue;
+		  font-family: Arial, sans-serif; /* Set a base font family */
+		}
+
+		h1 {
+		  font-size: 2em; 
+		  margin-bottom: 20px;
+		}
+
+		input[type="text"] {
+		  padding: 10px;
+		  border: 1px solid #ccc;
+		  margin-bottom: 15px;
+		}
+
+		input[type="submit"] {
+		  background-color: #4CAF50; 
+		  color: white;
+		  padding: 10px 20px;
+		  border: none;
+		  border-radius: 5px;
+		  cursor: pointer; 
+		}
+		
+		#msg {	
+		  color: #333; 
+		}
+		
+	</style>
+</head>
+
+<body>
+<center>
+	<h1>Palindrome checker App</h1>
+	<form onsubmit="check()">
+		<input type="text" placeholder="Enter Your Word" id="str"/>
+		<br/> <br/>
+		<input type="submit" value="Check"/>
+	</form>
+	<h2 id="msg"></h2>
+	<script>
+		function check(){
+			event.preventDefault();
+			let str = document.getElementById("str");
+			let msg = document.getElementById("msg");
+			let s = str.value.trim().toLowerCase();
+
+			if(s == ""){
+				alert("Input cannot be empty or blank spaces");
+				msg.innerHTML = "";
+				str.focus()
+				return;
+			}
+
+			let rs = s.split("").reverse().join("");
+			let ans = (s == rs) ? "It is a palindrome" : "It is not a Palindrome";
+			msg.innerHTML = ans;
+		}	
+	</script>
+</center>
+</body>
+</html>
